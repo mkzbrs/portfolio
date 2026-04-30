@@ -1,8 +1,66 @@
 @import "tailwindcss";
 
+/* Custom color palette for iOS-inspired design */
+:root {
+  --color-warm-beige: #f5f1ed;
+  --color-soft-cream: #fffbf7;
+  --color-faded-olive: #8b9a7d;
+  --color-amber-accent: #d97706;
+  --color-orange-accent: #f97316;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, var(--color-warm-beige) 0%, var(--color-soft-cream) 50%, #faf8f5 100%);
+  color: #1f2937;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global scroll styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(217, 119, 6, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 119, 6, 0.5);
+}
+
 @layer utilities {
   .bg-topo {
     background-color: #0a0a0a;
     background-image: url("https://www.transparenttextures.com/patterns/topography.png");
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    @apply bg-white/30 backdrop-blur-xl border border-white/20;
+  }
+
+  /* Smooth gradient text */
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r;
   }
 }
