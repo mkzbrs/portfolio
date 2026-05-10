@@ -160,7 +160,9 @@ export default function Hero() {
           Computer Science Student & Application Developer
         </motion.p>
 
-        <motion.button
+        <motion.a
+          href="/resume.pdf"
+          download="resume.pdf"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
@@ -170,7 +172,7 @@ export default function Hero() {
           className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-shadow"
         >
           Download Resume
-        </motion.button>
+        </motion.a>
       </div>
     </section>
   );
