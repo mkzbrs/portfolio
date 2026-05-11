@@ -6,7 +6,7 @@ import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
-    title: "Self-Hosted Private Cloud",
+    title: "Private Cloud",
     description:
       "A personal, secure cloud storage system deployed on a Raspberry Pi 5 (8GB RAM) with a Penta SATA HAT and 4TB HDD. Running on Ubuntu Server and securely routed through Cloudflare using a custom domain for reliable remote access and data management.",
     tags: ["Raspberry Pi", "Ubuntu Server", "Cloudflare", "Self-Hosted"],
@@ -14,7 +14,7 @@ const projects = [
     liveLink: "https://cloud.mkzbrs.com",
   },
   {
-    title: "Portfolio & Personal Brand",
+    title: "Portfolio Website",
     description:
       "A modern, responsive portfolio website showcasing my projects and professional journey. Built with Next.js, TypeScript, and Tailwind CSS, featuring smooth animations and glassmorphic design elements.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind"],

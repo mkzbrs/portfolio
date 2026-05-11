@@ -92,60 +92,67 @@ const GraphCard = ({ delay, rotation, x, y }: { delay: number; rotation: number;
 
 export default function Hero() {
   const handleDownload = () => {
-    window.open("/resume.pdf", "_blank");
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Floating cards positioned absolutely */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Top left cards */}
-        <MobileAppCard delay={0.3} rotation={-12} x={-180} y={-60} />
-        <CodeSnippetCard delay={0.4} rotation={8} x={-120} y={160} />
-
-        {/* Top right cards */}
-        <WireframeCard delay={0.5} rotation={15} x={160} y={-20} />
-        <GraphCard delay={0.6} rotation={-8} x={100} y={200} />
-
-        {/* Bottom left cards */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.35, duration: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          style={{ rotate: -15, x: -160, y: 360 }}
-          className="absolute w-44 h-44 rounded-2xl bg-gradient-to-br from-emerald-100/40 to-teal-100/30 backdrop-blur-xl border border-white/40 shadow-xl p-4"
-        >
-          <div className="text-2xl font-bold text-emerald-600 mb-1">150+</div>
-          <div className="text-xs text-slate-600">Git Commits</div>
-        </motion.div>
-
-        {/* Bottom right cards */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.45, duration: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          style={{ rotate: 10, x: 140, y: 380 }}
-          className="absolute w-44 h-44 rounded-2xl bg-gradient-to-br from-blue-100/40 to-indigo-100/30 backdrop-blur-xl border border-white/40 shadow-xl p-4 flex items-center justify-center"
-        >
-          <div className="text-center">
-            <div className="text-xl font-semibold text-blue-600">5+</div>
-            <div className="text-xs text-slate-600">Projects</div>
-          </div>
-        </motion.div>
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-slate-50">
+      
+      {/* 1. Animated Mesh Gradient*/}
+      <div className="absolute inset-0 overflow-hidden -z-10">
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            x: [0, 50, 0],
+            y: [0, 30, 0] 
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] rounded-full bg-amber-200/30 blur-[100px]" 
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.3, 1],
+            x: [0, -40, 0],
+            y: [0, -50, 0] 
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-[10%] -right-[10%] w-[600px] h-[600px] rounded-full bg-orange-200/20 blur-[120px]" 
+        />
       </div>
 
-      {/* Central content */}
-      <div className="relative z-10 max-w-2xl mx-auto text-center">
+      {/* 2. Floating Cards*/}
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
+        {/* Top Left - Move further out */}
+        <div className="absolute top-20 left-[5%]">
+           <MobileAppCard delay={0.3} rotation={-12} x={0} y={0} />
+        </div>
+        
+        {/* Bottom Left */}
+        <div className="absolute bottom-20 left-[10%] opacity-40">
+           <CodeSnippetCard delay={0.4} rotation={8} x={0} y={0} />
+        </div>
+
+        {/* Top Right */}
+        <div className="absolute top-20 right-[5%]">
+           <WireframeCard delay={0.5} rotation={15} x={0} y={0} />
+        </div>
+
+        {/* Bottom Right */}
+        <div className="absolute bottom-40 right-[10%]">
+           <GraphCard delay={0.6} rotation={-8} x={0} y={0} />
+        </div>
+      </div>
+
+      {/* 3. Central Content */}
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="flex flex-col items-center"
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 leading-tight">
-            Hello, I'm{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-500">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+            <span className="block mb-2 text-slate-500 font-medium">Hello, I'm</span>
+            <span className="block text-5xl sm:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-500 to-amber-500 py-2">
               Muhammad Khuzaimi
             </span>
           </h1>
@@ -155,21 +162,21 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.8 }}
-          className="text-xl sm:text-2xl text-slate-600 mb-12 font-light"
+          className="text-xl sm:text-2xl text-slate-600 mt-8 mb-12 font-medium max-w-xl mx-auto leading-relaxed"
         >
-          Computer Science Student & Application Developer
+          Computer Science Student & <br className="hidden sm:block" />
+          <span className="text-slate-800">Application Developer</span>
         </motion.p>
 
         <motion.a
           href="/resume.pdf"
-          download="resume.pdf"
+          download="Muhammad_Khuzaimi_Resume.pdf"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={handleDownload}
-          className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-shadow"
+          className="inline-block px-10 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-full shadow-[0_10px_20px_-5px_rgba(245,158,11,0.4)] hover:shadow-[0_20px_30px_-10px_rgba(245,158,11,0.5)] transition-all cursor-pointer"
         >
           Download Resume
         </motion.a>
