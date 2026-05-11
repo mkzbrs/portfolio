@@ -10,7 +10,7 @@ const projects = [
     description:
       "A personal, secure cloud storage system deployed on a Raspberry Pi 5 (8GB RAM) with a Penta SATA HAT and 4TB HDD. Running on Ubuntu Server and securely routed through Cloudflare using a custom domain for reliable remote access and data management.",
     tags: ["Raspberry Pi", "Ubuntu Server", "Cloudflare", "Self-Hosted"],
-    gitLink: "https://github.com/mkzbrs",
+    gitLink: "https://github.com/mkzbrs/cloud",
     liveLink: "https://cloud.mkzbrs.com",
   },
   {
