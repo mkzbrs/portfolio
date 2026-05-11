@@ -63,25 +63,30 @@ export default function About() {
           </motion.div>
 
           {/* Top Right - Portrait Card */}
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-1 lg:col-span-2 row-span-2"
-          >
-            <div className="h-full p-6 rounded-3xl bg-gradient-to-br from-white/40 to-white/20 backdrop-blur-xl border border-white/40 shadow-lg overflow-hidden">
-              {/* Professional Portrait Placeholder */}
-              <div className="w-full h-full bg-gradient-to-br from-slate-200 via-slate-100 to-white rounded-2xl flex items-center justify-center min-h-72">
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-300 to-orange-300 flex items-center justify-center text-5xl font-bold text-white">
-                    MK
+            <motion.div
+              variants={itemVariants}
+              className="md:col-span-1 lg:col-span-2 row-span-2"
+            >
+              <div className="h-full p-6 rounded-3xl bg-gradient-to-br from-white/40 to-white/20 backdrop-blur-xl border border-white/40 shadow-lg overflow-hidden">
+                <div className="w-full h-full bg-gradient-to-br from-slate-200 via-slate-100 to-white rounded-2xl flex items-center justify-center min-h-80">
+                  <div className="text-center">
+                    
+                    <div className="w-48 h-48 md:w-56 md:h-56 mx-auto mb-6 rounded-full border-8 border-white/50 shadow-2xl overflow-hidden bg-gradient-to-br from-amber-300 to-orange-200 relative">
+                      <img 
+                        src="/khuzaimi.png" 
+                        alt="Muhammad Khuzaimi"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    <p className="text-sm text-slate-800 font-medium">
+                      Muhammad Khuzaimi
+                    </p>
+                    <p className="text-xs text-slate-500">Developer & Designer</p>
                   </div>
-                  <p className="text-sm text-slate-600 font-medium">
-                    Muhammad Khuzaimi
-                  </p>
-                  <p className="text-xs text-slate-500">Developer & Designer</p>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
           {/* Bottom Left Top - Flutter & Dart Card */}
           <motion.div
